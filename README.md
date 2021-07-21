@@ -38,7 +38,7 @@ Este repositório contém os artefatos do projeto **eval-rabbitmq-py** que consi
 #### a. Tecnologias e ferramentas
 
 * Python 3.8
-* Venv
+* venv
 * Docker or Kubernetes or VirtualBox or On-Premisse infrastructure (Deployment Infraestructure)
 
 
@@ -55,29 +55,41 @@ Este repositório contém os artefatos do projeto **eval-rabbitmq-py** que consi
 
 ### 3.3. Guia de Implantação, Configuração e Instalação
 
-#### a. RabbitMQ
+#### a. RabbitMQ as-a-service free on Cloud AMQP
+
+* Faça o login no service Colud AMQP
+  * https://customer.cloudamqp.com/login
+* Crie uma nova instância do serviço gratuito (free) chamado `Little Lemur` seguindo o passo a passo:
+
+![screenshot-cloudamqp-01-new-instance.png](./doc/images/screenshot-cloudamqp-01-new-instance.png) 
+![screenshot-cloudamqp-02-new-instance.png](./doc/images/screenshot-cloudamqp-02-new-instance.png) 
+![screenshot-cloudamqp-03-new-instance.png](./doc/images/screenshot-cloudamqp-03-new-instance.png) 
+![screenshot-cloudamqp-04-new-instance.png](./doc/images/screenshot-cloudamqp-04-new-instance.png) 
+![screenshot-cloudamqp-05-new-instance.png](./doc/images/screenshot-cloudamqp-05-new-instance.png) 
+![screenshot-cloudamqp-06-new-instance.png](./doc/images/screenshot-cloudamqp-06-new-instance.png) 
+
+
+#### b. RabbitMQ in a DOCKER
 
 * Run Docker container for RabbitMQ
 
 ```cmd
-C:\..\eval-rabbitmq> 
-docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 -e RABBITMQ_DEFAULT_USER=user -e RABBITMQ_DEFAULT_PASS=password rabbitmq:3-management
+C:\..\eval-rabbitmq> docker run -d --hostname my-rabbit --name some-rabbit -p 5672:15672 -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin rabbitmq:3-management
 ```
 
 * Login RabbitMQ
-  * url: `http://localhost:8080`
-  * username: `user`
-  * password: `password`
+  * url: `http://localhost:5672`
+  * username: `admin`
+  * password: `admin`
 
-![screenshot-01-rabbitmq-login.png](./doc/images/screenshot-01-rabbitmq-login.png) 
+PS: Don't forget to grant access on to port on Windows Firewall
+
+
+![screenshot-rabbitmq-01-login.png](./doc/images/screenshot-rabbitmq-01-login.png) 
 
 * Expected dashboard painel
 
-![screenshot-02-rabbitmq-dashboard-painel.png](./doc/images/screenshot-02-rabbitmq-dashboard-painel.png) 
-
-* Add a new queue - name: `queue-eval`, durability: `Durable`, auto-delete: `No`
-
-![screenshot-03-rabbitmq-new-queue.png](./doc/images/screenshot-03-rabbitmq-new-queue.png) 
+![screenshot-rabbitmq-02-dashboard-painel.png](./doc/images/screenshot-rabbitmq-02-dashboard-painel.png) 
 
 
 ### 3.4. Guia de Demonstração e Teste
