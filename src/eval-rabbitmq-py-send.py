@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
 	# Startup application module ...
 	#amqs_url = 'amqp://admin:admin@localhost/vhosts'
-	amqs_url = 'amqps://fojschhk:AnTrXn3Z3dn4Co9yjOhulcVFjE0Z8Jkd@jackal.rmq.cloudamqp.com/fojschhk'
+	amqs_url = 'amqps://********:********************************@jackal.rmq.cloudamqp.com/********' # secrets.tmp
 	queue_name = 'queue-eval'
 	body_msg = 'Hello, this is message number {num}. Did you get it?'
 	count_msg = 50

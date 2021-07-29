@@ -17,7 +17,7 @@ def callback(ch, method, properties, body):
 
 def main():
 	#amqs_url = 'amqp://admin:admin@localhost/vhosts'
-	amqs_url = 'amqps://fojschhk:AnTrXn3Z3dn4Co9yjOhulcVFjE0Z8Jkd@jackal.rmq.cloudamqp.com/fojschhk'
+	amqs_url = 'amqps://********:********************************@jackal.rmq.cloudamqp.com/********' # secrets.tmp
 	queue_name = 'queue-eval'
 	parameters = pika.URLParameters(amqs_url)
 	print(f'  pika.BlockingConnection({amqs_url})')
