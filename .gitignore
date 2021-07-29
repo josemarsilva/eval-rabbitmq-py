@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Github Project User Custom
+secrets.tmp
+.idea/
